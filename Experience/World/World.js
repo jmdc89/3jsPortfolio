@@ -13,6 +13,11 @@ export default class World extends EventEmitter {
         this.scene = this.experience.scene;
         this.canvas = this.experience.canvas;
         this.camera = this.experience.camera;
+        this.resources = this.experience.resources;
+
+        this.resources.on("ready", () => {
+            this.room = new Room();
+        });
 
         this.room = new Room();
 
