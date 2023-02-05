@@ -8,10 +8,14 @@ export default class Room {
         this.resources = this.experience.resources;
         this.time = this.experience.time;
         this.room = this.resources.items.room;
-        // this.actualRoom = this.room.scene;
-        // this.roomChildren = {};
-        console.log(this.room);
+        this.actualRoom = this.room.scene;
+        
+        this.setModel();
 
+    }
+
+    setModel() {
+        this.scene.add(this.actualRoom);
     }
 
     resize() {}
