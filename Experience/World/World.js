@@ -19,7 +19,5 @@ export default class World extends EventEmitter {
             this.room = new Room();
         });
 
-        this.room = new Room();
-
     }
 }
