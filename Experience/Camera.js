@@ -34,8 +34,8 @@ export default class Camera {
             (this.sizes.aspect * this.sizes.frustrum) / 2,
             this.sizes.frustrum / 2,
             -this.sizes.frustrum / 2,
-            -50,
-            50
+            -10,
+            10
         );
 
         this.scene.add(this.orthographicCamera);
@@ -76,5 +76,8 @@ export default class Camera {
 
     update() {
         this.controls.update();
+
+        this.helper.matrixWorldNeedsUpdate = true;
+
     }
 }
