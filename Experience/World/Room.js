@@ -52,7 +52,15 @@ export default class Room {
         // this.actualRoom.rotation.y += Math.PI / 4;
     }
 
+    setAnimation() {
+        this.mixer = new THREE.AnimationMixer(this.actualRoom);
+        this.swim = this.mixer.clipAction(this.room.animations[0]);
+        this.swim.play();
+    }
+
     resize() {}
 
-    update() {}
+    update() {
+        this.mixer.update(this.time.delta);
+    }
 }
