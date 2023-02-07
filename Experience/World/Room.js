@@ -12,6 +12,7 @@ export default class Room {
         // console.log(this.actualRoom);
         
         this.setModel();
+        this.setAnimation();
 
     }
 
@@ -57,10 +58,9 @@ export default class Room {
         this.swim = this.mixer.clipAction(this.room.animations[0]);
         this.swim.play();
     }
-
     resize() {}
 
     update() {
-        this.mixer.update(this.time.delta);
+        this.mixer.update(this.time.delta * 0.0009);
     }
 }
