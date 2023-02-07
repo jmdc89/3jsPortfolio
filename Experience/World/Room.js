@@ -9,6 +9,7 @@ export default class Room {
         this.time = this.experience.time;
         this.room = this.resources.items.room;
         this.actualRoom = this.room.scene;
+        // console.log(this.actualRoom);
         
         this.setModel();
 
@@ -19,7 +20,6 @@ export default class Room {
         this.actualRoom.children.forEach((child) => {
             child.castShadow = true;
             child.receiveShadow = true;
-            // console.log(child);
 
             if (child instanceof THREE.Group) {
                 child.children.forEach((groupchild) => {
@@ -29,14 +29,14 @@ export default class Room {
                 
             }
 
-            // if(child.name === "water.001") {
+            // if(child.name === "Cube136") {
             //     console.log(child);
             //     child.material = new THREE.MeshPhysicalMaterial();
-            //     child.children[0].material.roughness = 0;
-            //     child.children[0].material.color.set(0x549dd2);
-            //     child.children[0].material.ior = 3;
-            //     child.children[0].material.transmission = 1;
-            //     child.children[0].material.opacity = 1;
+            //     child.material.roughness = 0;
+            //     child.material.color.set(0x549dd2);
+            //     child.material.ior = 3;
+            //     child.material.transmission = 1;
+            //     child.material.opacity = 1;
             // }
 
             if (child.name === "Computer") {
