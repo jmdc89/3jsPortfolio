@@ -13,6 +13,14 @@ export default class Controls {
         this.progress = 0;
         this.dummyCurve = new THREE.Vector3(0,0,0)
 
+        this.lerp = {
+            current: 0,
+            target: 0,
+            ease: 0.1
+        };
+
+        this.position = new THREE.Vector3(0,0,0)
+
         this.setPath();
         this.onWheel();
     }
@@ -40,22 +48,24 @@ export default class Controls {
     onWheel() {
         window.addEventListener("wheel", (e) => {
             if(e.deltaY > 0) {
-                this.progress += 0.1;
+                this.lerp.target += 0.01;
             } else {
-                this.progress -= 0.1;
-                if (this.progress < 0) {
-                    this.progress = 1;
+                this.lerp.target -= 0.1;
                 }
-            }
         });
     }
 
     resize() {}
 
     update() {
-        this.curve.getPointAt(this.progress % 1, this.dummyCurve);
-        // this.progress -= 0.01;
+        this.lerp.current = GSAP.utils.interpolate(
+            this.lerp.current,
+            this.lerp.target,
+            this.lerp.ease
+        );
+        
+        this.curve.getPointAt(this.lerp.current, this.position);
 
-        this.camera.orthographicCamera.position.copy(this.dummyCurve);
+        this.camera.orthographicCamera.position.copy(this.position);
     }
 }
