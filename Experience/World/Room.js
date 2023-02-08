@@ -9,10 +9,16 @@ export default class Room {
         this.time = this.experience.time;
         this.room = this.resources.items.room;
         this.actualRoom = this.room.scene;
-        // console.log(this.actualRoom);
+        
+        this.lerp = {
+            current: 0,
+            target: 0,
+            ease: 0.1
+        };
         
         this.setModel();
         this.setAnimation();
+        this.onMouseMove();
 
     }
 
@@ -58,6 +64,13 @@ export default class Room {
         this.swim = this.mixer.clipAction(this.room.animations[0]);
         this.swim.play();
     }
+
+    onMouseMove() {
+        window.addEventListener("mousemove", (e) => {
+            console.log(e);
+        });
+    }
+
     resize() {}
 
     update() {
