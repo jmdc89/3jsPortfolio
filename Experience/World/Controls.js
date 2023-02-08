@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import Experience from "../Experience.js";
+import GSAP from "gsap";
 
 export default class Controls {
     constructor() {
@@ -63,6 +64,9 @@ export default class Controls {
             this.lerp.target,
             this.lerp.ease
         );
+
+        this.lerp.target = GSAP.utils.clamp(0,1, this.lerp.target);
+        this.lerp.current = GSAP.utils.clamp(0,1, this.lerp.current);
         
         this.curve.getPointAt(this.lerp.current, this.position);
 
