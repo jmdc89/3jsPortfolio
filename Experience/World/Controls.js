@@ -10,6 +10,9 @@ export default class Controls {
         this.time = this.experience.time;
         this.camera = this.experience.camera;
 
+        this.progress = 0;
+        this.dummyCurve = new THREE.Vector3(0,0,0);
+
         this.setPath();
     }
 
@@ -21,7 +24,7 @@ export default class Controls {
             new THREE.Vector3( 0, 0, 0 ),
             new THREE.Vector3( 5, -5, 5 ),
             new THREE.Vector3( 10, 0, 10 )
-        ] );
+        ], true );
 
         const points = this.curve.getPoints( 50 );
         const geometry = new THREE.BufferGeometry().setFromPoints( points );
@@ -35,5 +38,10 @@ export default class Controls {
 
     resize() {}
 
-    update() {}
+    update() {
+        this.curve.getPointAt(this.progress % 1, this.dummyCurve);
+        this.progress += 0.01;
+
+        this.camera.orthographicCamera.position.copy(this.dummyCurve);
+    }
 }
