@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import Experience from "../Experience.js";
-import GSAP from "gsap";
+
 
 export default class Controls {
     constructor() {
@@ -16,11 +16,6 @@ export default class Controls {
     resize() {}
 
     update() {
-        // this.lerp.current = GSAP.utils.interpolate(
-        //     this.lerp.current,
-        //     this.lerp.target,
-        //     this.lerp.ease
-        // );
 
     }
 }

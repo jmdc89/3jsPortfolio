@@ -68,7 +68,11 @@ export default class Room {
 
     onMouseMove() {
         window.addEventListener("mousemove", (e) => {
-            console.log(e);
+            this.rotation =
+                ((e.clientX - window.innerWidth / 2) * 2) / window.innerWidth;
+            this.lerp.target = this.rotation * 0.05;
+            // console.log(this.rotation);
+            
         });
     }
 
