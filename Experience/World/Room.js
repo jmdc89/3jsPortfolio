@@ -86,7 +86,7 @@ export default class Room {
         this.lerp.ease
         );
 
-        this.actualRoom.rotation.y = this.lerp.current * 5;
+        this.actualRoom.rotation.y = this.lerp.current;
 
         this.mixer.update(this.time.delta * 0.0009);
     }
