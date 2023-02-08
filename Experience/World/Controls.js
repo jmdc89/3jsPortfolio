@@ -40,7 +40,10 @@ export default class Controls {
 
     update() {
         this.curve.getPointAt(this.progress % 1, this.dummyCurve);
-        this.progress += 0.01;
+        this.progress -= 0.01;
+        if (this.progress < 0) {
+            this.progress = 1;
+        }
 
         this.camera.orthographicCamera.position.copy(this.dummyCurve);
     }
