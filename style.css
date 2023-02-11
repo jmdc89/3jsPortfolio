@@ -48,6 +48,8 @@ svg{
   --color-blue: var(--color-text-dark);
 }
 
+/* Experience --------------------------------------------- */
+
 .experience{
   position: fixed;
   width: 100vw;
@@ -58,3 +60,8 @@ svg{
   width: 100%;
   height: 100%;
 }
+
+.hidden{
+  display: none;
+}
+
