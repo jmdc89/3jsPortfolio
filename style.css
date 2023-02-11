@@ -413,3 +413,29 @@ svg{
   text-transform: uppercase;
   color: var(--color-text);
 }
+
+/* Other colors override */
+
+.blue-text{
+  color: var(--color-blue)
+}
+
+.blue-border{
+  border-color: var(--color-blue);
+}
+
+.blue-background{
+  background-color: var(--color-blue);
+}
+
+.green-text{
+  color: var(--color-green)
+}
+
+.green-border{
+  border-color: var(--color-green);
+}
+
+.green-background{
+  background-color: var(--color-green);
+}
