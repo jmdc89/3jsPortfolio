@@ -1,11 +1,15 @@
 import * as THREE from "three";
 import Experience from "../Experience.js";
 import GSAP from "gsap";
+import GUI from "lil-gui";
 
 export default class Environment {
     constructor() {
         this.experience = new Experience();
         this.scene = this.experience.scene;
+        this.resources = this.experience.resources;
+
+        const gui = new GUI();
 
         this.setSunlight();
     }
