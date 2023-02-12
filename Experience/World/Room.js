@@ -10,6 +10,7 @@ export default class Room {
         this.time = this.experience.time;
         this.room = this.resources.items.room;
         this.actualRoom = this.room.scene;
+        this.roomChildren = {};
         
         this.lerp = {
             current: 0,
@@ -54,6 +55,8 @@ export default class Room {
             }
 
         });
+
+    
             
         this.scene.add(this.actualRoom);
         this.actualRoom.scale.set(0.11,0.11,0.11);
